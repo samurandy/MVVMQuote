@@ -1,23 +1,23 @@
 package com.andreschv.mvvmquote.ui.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.andreschv.mvvmquote.data.model.QuoteModel
 import com.andreschv.mvvmquote.domain.GetQuotesUseCase
 import com.andreschv.mvvmquote.domain.GetRandomQuoteUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import java.lang.NullPointerException
-import java.util.logging.Handler
+import javax.inject.Inject
 
-class QuoteViewModel : ViewModel() {
+@HiltViewModel
+class QuoteViewModel @Inject constructor(
+    val getQuotesUseCase: GetQuotesUseCase,
+    val getRandomQuoteUseCase: GetRandomQuoteUseCase
+) : ViewModel() {
     val quoteModel = MutableLiveData<QuoteModel>()
     var isLoading = MutableLiveData<Boolean>()
-
-    var getQuotesUseCase = GetQuotesUseCase()
-    var getRandomQuoteUseCase = GetRandomQuoteUseCase()
 
     fun onCreate() {
         viewModelScope.launch {
