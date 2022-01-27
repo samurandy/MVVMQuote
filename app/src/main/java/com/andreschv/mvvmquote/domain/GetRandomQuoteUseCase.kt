@@ -1,14 +1,13 @@
 package com.andreschv.mvvmquote.domain
 
-import com.andreschv.mvvmquote.data.model.QuoteModel
-import com.andreschv.mvvmquote.data.model.QuoteProvider
 import com.andreschv.mvvmquote.data.QuoteRepository
+import com.andreschv.mvvmquote.domain.model.Quote
 import javax.inject.Inject
 
-class GetRandomQuoteUseCase @Inject constructor(private val quoteProvider: QuoteProvider){
+class GetRandomQuoteUseCase @Inject constructor(private val repository: QuoteRepository){
 
-    operator fun invoke(): QuoteModel? {
-        val quotes = quoteProvider.quotes
+    suspend operator fun invoke(): Quote? {
+        val quotes = repository.getAllQuotesFromDatabase()
         if (!quotes.isNullOrEmpty()) {
             val randomNumber: Int = (0..quotes.size - 1).random()
             return quotes[randomNumber]
