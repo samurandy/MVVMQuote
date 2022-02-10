@@ -2,10 +2,8 @@ package com.andreschv.mvvmquote.ui.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
-import androidx.lifecycle.Observer
 import com.andreschv.mvvmquote.databinding.ActivityMainBinding
 import com.andreschv.mvvmquote.ui.viewmodel.QuoteViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,12 +22,12 @@ class MainActivity : AppCompatActivity() {
 
         quoteViewModel.onCreate()
 
-        quoteViewModel.quoteModel.observe(this, Observer {currentQuote -> //instead of it by default
+        quoteViewModel.quoteModel.observe(this, { currentQuote -> //instead of it by default
             binding.tvQuote.text = currentQuote.quote
             binding.tvAuthor.text = currentQuote.author
         })
 
-        quoteViewModel.isLoading.observe(this, Observer {
+        quoteViewModel.isLoading.observe(this, {
             binding.progress.isVisible = it
         })
 

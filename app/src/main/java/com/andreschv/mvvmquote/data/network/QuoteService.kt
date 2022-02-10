@@ -1,6 +1,5 @@
 package com.andreschv.mvvmquote.data.network
 
-import com.andreschv.mvvmquote.core.RetrofitHelper
 import com.andreschv.mvvmquote.data.model.QuoteModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

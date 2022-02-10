@@ -3,7 +3,6 @@ package com.andreschv.mvvmquote.ui.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.andreschv.mvvmquote.data.model.QuoteModel
 import com.andreschv.mvvmquote.domain.GetQuotesUseCase
 import com.andreschv.mvvmquote.domain.GetRandomQuoteUseCase
 import com.andreschv.mvvmquote.domain.model.Quote

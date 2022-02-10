@@ -1,6 +1,5 @@
 package com.andreschv.mvvmquote.domain
 
-import com.andreschv.mvvmquote.data.model.QuoteModel
 import com.andreschv.mvvmquote.data.QuoteRepository
 import com.andreschv.mvvmquote.data.database.entities.toDatabase
 import com.andreschv.mvvmquote.domain.model.Quote
